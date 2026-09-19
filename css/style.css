@@ -12,3 +12,29 @@ button,input,select{font:inherit}.primary,.secondary,.service,.iconBtn{border:0;
 nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(760px,100%);display:grid;grid-template-columns:repeat(3,1fr);background:#3c4a56;border-top:1px solid #71808b;z-index:10}nav button{background:transparent;color:white;border:0;padding:18px 8px;font-weight:800}nav button.active{background:#4a5965}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:grid;place-items:end center;z-index:20}.modal[hidden]{display:none}.sheet{width:min(760px,100%);background:#202b34;padding:22px;border-radius:22px 22px 0 0}.sheet label{display:block;font-weight:700;margin:13px 0}.sheet input,.sheet select{display:block;width:100%;margin-top:7px;padding:13px;border-radius:10px;border:1px solid #71808b;background:#111920;color:white}
 @media(max-width:520px){main{padding:18px 12px}.summary{gap:6px}.stat{padding:10px}.odo strong{font-size:40px}.historyItem{flex-direction:column}}
+.tabWrap{
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+}
+
+.tabWrap .tab{
+  border-radius:11px 0 0 11px;
+}
+
+.deleteBike{
+  border:1px solid #ff4b55;
+  border-left:0;
+  background:#242d37;
+  color:#ff4b55;
+  border-radius:0 11px 11px 0;
+  padding:10px 12px;
+  font-weight:900;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.deleteBike:active{
+  background:#ff424d;
+  color:white;
+}
