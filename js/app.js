@@ -18,8 +18,9 @@ function render(){
  $("#bikeBrand").textContent=bike.brand;$("#bikeName").textContent=bike.model;$("#bikeYear").textContent="Model year "+bike.year;$("#odoValue").textContent=bike.odometer.toLocaleString();
  let due=0,soon=0,good=0;
  $("#maintenance").innerHTML=SERVICE_RULES.map(r=>{
-   const last=bike.services[r.id] ?? (Math.floor(bike.odometer / r.interval) * r.interval);
-   const next=last+r.interval, remain=next-bike.odometer;
+   const hasServiceRecord = bike.services[r.id] !== undefined;
+   const last = hasServiceRecord ? bike.services[r.id] : 0;
+   const next = last + r.interval, remain = next - bike.odometer;
    let status,cls;if(remain<=0){status="DUE NOW";cls="due";due++}else if(remain<=Math.min(1000,r.interval*.2)){status="DUE SOON";cls="soon";soon++}else{status="GOOD";cls="good";good++}
    const pct=Math.max(3,Math.min(100,((bike.odometer-last)/r.interval)*100));
    const detail=remain<=0?fmt(Math.abs(remain))+" overdue":fmt(remain)+" remaining";
