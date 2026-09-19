@@ -1,0 +1,14 @@
+{
+  "name": "scooter-buddy-v1",
+  "compatibility_date": "2026-09-19",
+  "assets": {
+    "directory": "."
+  },
+  "d1_databases": [
+    {
+      "binding": "LICENSE_DB",
+      "database_name": "scooter-buddy-licenses",
+      "database_id": "7265ca00-8f87-4688-9f1e-feaed609fe4a"
+    }
+  ]
+}
