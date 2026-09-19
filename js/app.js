@@ -11,8 +11,30 @@ function populateBrands(){
 function populateModels(){model.innerHTML=PH_SCOOTERS[brand.value].map(x=>`<option>${x}</option>`).join("")}
 function render(){
  const bike=activeBike(), empty=$("#empty"), dash=$("#dashboard");
- $("#tabs").innerHTML=data.scooters.map(b=>`<button class="tab ${b.id===data.active?'active':''}" data-id="${b.id}">${b.model}</button>`).join("");
+ $("#tabs").innerHTML=data.scooters.map(b=>`
+   <div class="tabWrap">
+     <button class="tab ${b.id===data.active?'active':''}" data-id="${b.id}">${b.model}</button>
+     <button class="deleteBike" data-delete-id="${b.id}" aria-label="Delete ${b.model}">×</button>
+   </div>
+ `).join("");
  document.querySelectorAll(".tab").forEach(x=>x.onclick=()=>{data.active=x.dataset.id;save();render()});
+ document.querySelectorAll(".deleteBike").forEach(btn=>btn.onclick=()=>{
+   const bike=data.scooters.find(b=>b.id===btn.dataset.deleteId);
+   if(!bike)return;
+
+   const confirmed=confirm(`Delete ${bike.model} from your garage? This will also delete its maintenance history.`);
+   if(!confirmed)return;
+
+   data.scooters=data.scooters.filter(b=>b.id!==bike.id);
+   data.history=data.history.filter(h=>h.scooterId!==bike.id);
+
+   if(data.active===bike.id){
+     data.active=data.scooters.length ? data.scooters[0].id : null;
+   }
+
+   save();
+   render();
+ });
  empty.hidden=!!bike;dash.hidden=!bike;
  if(!bike)return renderHistory();
  $("#bikeBrand").textContent=bike.brand;$("#bikeName").textContent=bike.model;$("#bikeYear").textContent="Model year "+bike.year;$("#odoValue").textContent=bike.odometer.toLocaleString();
