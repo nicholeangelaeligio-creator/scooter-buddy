@@ -1,4 +1,4 @@
-const KEY="scooterBuddyDataV1";
+const KEY="scooterBuddyDataV1"; // Keep V1 key so existing garage data is preserved
 let data=JSON.parse(localStorage.getItem(KEY)||'{"scooters":[],"active":null,"history":[]}');
 const $=s=>document.querySelector(s);
 const save=()=>localStorage.setItem(KEY,JSON.stringify(data));
