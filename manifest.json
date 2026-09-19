@@ -1,0 +1,21 @@
+{
+  "name": "Scooter Buddy",
+  "short_name": "Scooter Buddy",
+  "description": "Scooter maintenance tracker developed and maintained by TonThingz",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#d62828",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
