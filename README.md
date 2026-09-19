@@ -21,3 +21,5 @@ Maintenance intervals in V1 are TonThingz recommendations and may differ from ma
 * Unrecorded services are evaluated against the odometer schedule instead of being treated as newly serviced
 * Completing a service resets only that service from the current odometer
 * Updated offline cache to V2
+
+Deployment refresh for license database setup.
